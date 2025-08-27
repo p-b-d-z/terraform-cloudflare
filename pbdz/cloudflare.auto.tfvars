@@ -1,3 +1,5 @@
+### MANUALLY UPDATED DUE - CONTAINS SENSITIVE INFORMATION ###
+
 # Credentials
 cloudflare_api_token="OBFUSCATED"
 # Zero Trust
