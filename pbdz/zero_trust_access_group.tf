@@ -5,7 +5,7 @@ resource "cloudflare_zero_trust_access_group" "pbdz_xyz_domain" {
   exclude    = []
   include = [{
     email_domain = {
-      domain = "pbdz.xyz"
+      domain = var.hosted_domains.zerotrust
     }
   }]
   require = []
