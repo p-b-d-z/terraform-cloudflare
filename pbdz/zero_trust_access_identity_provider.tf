@@ -10,7 +10,7 @@ resource "cloudflare_zero_trust_access_identity_provider" "google_oauth" {
   type        = "google"
   account_id  = cloudflare_account.master.id
   config      = {
-    client_id = "937008270753-rvqbpbrnlknlctuvq65d95c01o3b6k51.apps.googleusercontent.com"
+    client_id = var.google_oauth_client_id
   }
   scim_config = {
     enabled                  = false
