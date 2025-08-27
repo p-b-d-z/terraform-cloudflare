@@ -1,6 +1,6 @@
 resource "cloudflare_dns_record" "pbdz_xyz_dmarc" {
-  content  = "v=DMARC1; p=reject; rua=mailto:${cloudflare_dmarc_email}"
-  name     = "_dmarc.pbdz.xyz"
+  content  = "v=DMARC1; p=reject; rua=mailto:${var.cloudflare_dmarc_email}"
+  name     = "_dmarc.${var.hosted_domains.zerotrust}"
   proxied  = false
   tags     = []
   ttl      = 1
@@ -11,7 +11,7 @@ resource "cloudflare_dns_record" "pbdz_xyz_dmarc" {
 
 resource "cloudflare_dns_record" "pbdz_xyz_spf" {
   content  = "v=spf1 include:_spf.mx.cloudflare.net -all"
-  name     = "pbdz.xyz"
+  name     = var.hosted_domains.zerotrust
   proxied  = false
   tags     = []
   ttl      = 1
@@ -22,7 +22,7 @@ resource "cloudflare_dns_record" "pbdz_xyz_spf" {
 
 resource "cloudflare_dns_record" "pbdz_xyz_mx_tertiary" {
   content  = "route3.mx.cloudflare.net"
-  name     = "pbdz.xyz"
+  name     = var.hosted_domains.zerotrust
   priority = 20
   proxied  = false
   tags     = []
@@ -34,7 +34,7 @@ resource "cloudflare_dns_record" "pbdz_xyz_mx_tertiary" {
 
 resource "cloudflare_dns_record" "pbdz_xyz_mx_secondary" {
   content  = "route2.mx.cloudflare.net"
-  name     = "pbdz.xyz"
+  name     = var.hosted_domains.zerotrust
   priority = 10
   proxied  = false
   tags     = []
@@ -46,7 +46,7 @@ resource "cloudflare_dns_record" "pbdz_xyz_mx_secondary" {
 
 resource "cloudflare_dns_record" "pbdz_xyz_mx_primary" {
   content  = "route1.mx.cloudflare.net"
-  name     = "pbdz.xyz"
+  name     = var.hosted_domains.zerotrust
   priority = 0
   proxied  = false
   tags     = []
