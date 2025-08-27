@@ -8,17 +8,18 @@ variable "cloudflare_zero_trust_access_domain" {
   default      = "changeme.cloudflareaccess.com"
 }
 
-variable "cloudflare_abuse_email" {
-  description  = "Primary abuse contact"
-  default      = "example@domain.tld"
+variable "hosted_domains" {
+  description = "Domain dictionary"
+  type        = map(string)
+  default = {
+    primary   = "some.com"
+  }
 }
 
-variable "cloudflare_dmarc_email" {
-  description  = "Primary DMARC contact"
-  default      = "example@domain.tld"
-}
-
-variable "joe_pbdz_xyz" {
-  description  = "Forwarded e-mail address"
-  default      = "example@domain.tld"
+variable "email_contacts" {
+  description = "Email address dictionary"
+  type        = map(string)
+  default = {
+    primary   = "some@email.com"
+  }
 }
