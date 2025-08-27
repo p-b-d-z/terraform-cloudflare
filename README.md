@@ -1,12 +1,19 @@
 # Terraform - Cloudflare
 
 ## Getting Started
-### Generate and Import
+### Install Terraform
+
+Run the script to install Terraform, if it is not already installed.
+```bash
+sudo ./install-terraform.sh
+```
 
 Download and install `cf-terraforming` from https://github.com/cloudflare/cf-terraforming or run the script included in this repository.
 ```bash
 sudo ./build-terraforming.sh
 ```
+
+### Generate and Import
 
 Run the `generate-cf.sh` script against the account directory.
 ```bash
