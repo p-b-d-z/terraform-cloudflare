@@ -3,6 +3,11 @@ variable "cloudflare_api_token" {
   default     = "changeme"
 }
 
+variable "google_oauth_client_id" {
+  description = "Google OAuth Client ID"
+  default     = "changeme"
+}
+
 variable "cloudflare_zero_trust_access_domain" {
   description  = "Zero Trust Access Domain"
   default      = "changeme.cloudflareaccess.com"
