@@ -2,14 +2,14 @@ resource "cloudflare_zero_trust_access_application" "jenkins_pbdz_xyz" {
   allowed_idps               = []
   app_launcher_visible       = true
   auto_redirect_to_identity  = false
-  domain                     = "jenkins.pbdz.xyz"
+  domain                     = "jenkins.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Jenkins"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "jenkins.pbdz.xyz"
+    uri  = "jenkins.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -28,14 +28,14 @@ resource "cloudflare_zero_trust_access_application" "sabnzbd_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "sabnzbd.pbdz.xyz"
+  domain                     = "sabnzbd.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Sabnzbd"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "sabnzbd.pbdz.xyz"
+    uri  = "sabnzbd.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -54,14 +54,14 @@ resource "cloudflare_zero_trust_access_application" "radarr_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "radarr.pbdz.xyz"
+  domain                     = "radarr.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Radarr"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "radarr.pbdz.xyz"
+    uri  = "radarr.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -80,14 +80,14 @@ resource "cloudflare_zero_trust_access_application" "sonarr_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "sonarr.pbdz.xyz"
+  domain                     = "sonarr.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Sonarr"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "sonarr.pbdz.xyz"
+    uri  = "sonarr.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -106,14 +106,14 @@ resource "cloudflare_zero_trust_access_application" "vault_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "vault.pbdz.xyz"
+  domain                     = "vault.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Vault"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "vault.pbdz.xyz"
+    uri  = "vault.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -132,17 +132,17 @@ resource "cloudflare_zero_trust_access_application" "teslamate_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "teslamate.pbdz.xyz"
+  domain                     = "teslamate.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Teslamate"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "teslamate.pbdz.xyz"
+    uri  = "teslamate.${var.hosted_domains.zerotrust}"
   },{
     type = "public"
-    uri  = "tesladash.pbdz.xyz"
+    uri  = "tesladash.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -161,7 +161,7 @@ resource "cloudflare_zero_trust_access_application" "uptime_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "uptime.pbdz.xyz"
+  domain                     = "uptime.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Uptime Kuma"
@@ -169,7 +169,7 @@ resource "cloudflare_zero_trust_access_application" "uptime_pbdz_xyz" {
   same_site_cookie_attribute = "none"
   destinations = [{
     type = "public"
-    uri  = "uptime.pbdz.xyz"
+    uri  = "uptime.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -188,14 +188,14 @@ resource "cloudflare_zero_trust_access_application" "pwpusher_pbdz_xyz" {
   allowed_idps               = []
   app_launcher_visible       = true
   auto_redirect_to_identity  = false
-  domain                     = "pwpusher.pbdz.xyz"
+  domain                     = "pwpusher.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "Password Pusher - pbdz.xyz"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "pwpusher.pbdz.xyz"
+    uri  = "pwpusher.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   tags                       = []
@@ -211,14 +211,14 @@ resource "cloudflare_zero_trust_access_application" "ssh3_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "ssh3.pbdz.xyz"
+  domain                     = "ssh3.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "SSH - NUC"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "ssh3.pbdz.xyz"
+    uri  = "ssh3.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   skip_interstitial          = true
@@ -235,14 +235,14 @@ resource "cloudflare_zero_trust_access_application" "ssh2_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "ssh2.pbdz.xyz"
+  domain                     = "ssh2.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "SSH - DNS2"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "ssh2.pbdz.xyz"
+    uri  = "ssh2.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   skip_interstitial          = true
@@ -259,14 +259,14 @@ resource "cloudflare_zero_trust_access_application" "ssh1_pbdz_xyz" {
   allowed_idps               = ["424eba98-23bd-49c1-b835-0678dacb99a9"]
   app_launcher_visible       = true
   auto_redirect_to_identity  = true
-  domain                     = "ssh1.pbdz.xyz"
+  domain                     = "ssh1.${var.hosted_domains.zerotrust}"
   enable_binding_cookie      = false
   http_only_cookie_attribute = false
   name                       = "SSH - DNS1"
   options_preflight_bypass   = false
   destinations = [{
     type = "public"
-    uri  = "ssh1.pbdz.xyz"
+    uri  = "ssh1.${var.hosted_domains.zerotrust}"
   }]
   session_duration           = "24h"
   skip_interstitial          = true
