@@ -50,7 +50,7 @@ terraform apply current.plan
 ```
 
 ## Troubleshooting
-You may need to modify some state manually. For example, the `cloudflare_account` "type" resource cannot be modified or imported (bug?). You may need to manually add the type attribute. To do this, following these steps:
+You may need to modify some state manually. For example, the `cloudflare_account` "type" attribute cannot be modified or imported (bug?). You may need to manually add the type attribute. To do this, following these steps:
 ```bash
 terraform state pull > current.state
 cp current.state new.state
