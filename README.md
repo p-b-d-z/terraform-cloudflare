@@ -17,7 +17,9 @@ sudo ./build-terraforming.sh
 
 Run the `generate-cf.sh` script against the account directory.
 ```bash
-sudo ./generate-cf.sh pbdz
+sudo ./generate-cf.sh [account sub-directory]
+# Example
+# sudo ./generate-cf.sh pbdz
 ```
 
 This will create a generate.raw file that contains all of the resources to import.
