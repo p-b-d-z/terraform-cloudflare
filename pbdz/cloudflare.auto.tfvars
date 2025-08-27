@@ -8,3 +8,16 @@ cloudflare_zero_trust_access_domain="OBFUSCATED"
 cloudflare_abuse_email="OBFUSCATED"
 cloudflare_dmarc_email="OBFUSCATED"
 joe_pbdz_xyz="OBFUSCATED"
+# Domains
+hosted_domains={
+  estates   = "OBFUSCATED"
+  zerotrust = "OBFUSCATED"
+}
+# Email contacts
+email_contacts={
+  primary = "OBFUSCATED"
+  estates = "OBFUSCATED"
+  forward = "OBFUSCATED"
+  alli    = "OBFUSCATED"
+  alt     = "OBFUSCATED"
+}
