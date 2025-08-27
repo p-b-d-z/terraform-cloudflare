@@ -5,12 +5,12 @@ resource "cloudflare_email_routing_rule" "forward_to_pobudz_gmail" {
   zone_id  = cloudflare_zone.pbdz_xyz.id
   actions = [{
     type  = "forward"
-    value = ["${var.cloudflare_dmarc_email}"]
+    value = [var.email_contacts.primary]
   }]
   matchers = [{
     field = "to"
     type  = "literal"
-    value = "${var.joe_pbdz_xyz}"
+    value = var.email_contacts.forward
   }]
 }
 
