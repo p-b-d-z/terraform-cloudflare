@@ -18,6 +18,24 @@ sudo ./build-terraforming.sh
 
 ### Generate and Import
 
+#### Configure dot env
+Configure the account `.env` file to have the appropriate credentials:
+ - API Token
+ - Account ID
+ - Zone ID
+
+If you have more than one Zone ID, you may need to run through this process for each zone.
+
+#### Initialize Terraform
+
+Create the `providers.tf` file and init Terraform. The `providers.tf` in this repo is setup to be re-used. `cf-terraforming` will not work until the directory has been initialized with Terraform.
+
+```bash
+cd [account sub-directory]
+terraform init
+cd ..
+```
+
 Run the `generate-cf.sh` script against the account directory.
 ```bash
 sudo ./generate-cf.sh [account sub-directory]
@@ -32,12 +50,6 @@ This will create a generate.raw file that contains all of the resources to impor
 ### Deploying
 
 Ideally when running through the plan after import for the first time, there are no adds/removes and only minor changes.
-
-Initialize the directory
-```bash
-cd [account sub-directory]
-terraform init
-```
 
 Validate the Terraform plan
 ```bash
