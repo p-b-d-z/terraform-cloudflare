@@ -44,7 +44,15 @@ sudo ./generate-cf.sh [account sub-directory]
 This will create a generate.raw file that contains all of the resources to import.
 - Extract the resources and organize into files (*.tf)
 - Extract sensitive/repetitive information and organize into variable files (variables.tf, *.auto.tfvars)
-- Run the cf-terraforming import command to generate the import configuration (*.import.tf)
+
+Run the `import-cf.sh` script against the account directory.
+```bash
+sudo ./import-cf.sh [account sub-directory]
+```
+
+This will create a import.raw file that contains all of the resources to import.
+- Runs the cf-terraforming import command to generate the import configuration (*.import.tf)
+- Place the import{} syntax into corresponding import files (*.import.tf)
 - Rename the imported resources by matching UUIDs (defaults to terraform_managed_resource_[ID]_#)
 
 ### Deploying
