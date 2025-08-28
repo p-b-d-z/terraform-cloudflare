@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source .env
 PROJECT=$1
 RESOURCES=(
   'cloudflare_account'
@@ -43,8 +42,10 @@ RESOURCES=(
 )
 
 cd $PROJECT
+source .env
 for i in "${!RESOURCES[@]}"; do
-  echo -e "\nProcessing ${RESOURCES[$i]}"
+  echo -e "\nProcessing ${RESOURCES[$i]} for Zone: ${ZONE_ID}"
   cf-terraforming generate --zone ${ZONE_ID} --resource-type "${RESOURCES[$i]}" --terraform-binary-path=./terraform >> generate.raw
+  echo -e "\nProcessing ${RESOURCES[$i]} for Account: ${ACCOUNT_ID}"
   cf-terraforming generate --account ${ACCOUNT_ID} --resource-type "${RESOURCES[$i]}" --terraform-binary-path=./terraform >> generate.raw
 done
