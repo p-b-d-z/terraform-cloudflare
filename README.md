@@ -2,7 +2,9 @@
 
 ## Getting Started
 
-I'm constructing this repository to support multiple accounts (monolith) for my own personal laziness. Feel free to fork and use as desired.
+This repository supports multiple accounts. It is designed to be run in the following environment:
+- AWS S3 Bucket for Terraform state
+- Jenkins for CI/CD
 
 ### Install Terraform
 
@@ -16,6 +18,11 @@ Download and install `cf-terraforming` from https://github.com/cloudflare/cf-ter
 sudo ./build-terraforming.sh
 ```
 
+Configure environment variables. This is required to access the Terraform state bucket in AWS S3.
+```bash
+./init_env_vars.sh
+```
+
 ### Generate and Import
 
 #### Configure dot env
@@ -24,7 +31,9 @@ Configure the account `.env` file to have the appropriate credentials:
  - Account ID
  - Zone ID
 
-If you have more than one Zone ID, you may need to run through this process for each zone.
+If you have more than one Zone ID, you may need to run through this process for each zone. 
+You can use `init_env_vars.sh` to retrieve the `CLOUDFLARE_API_TOKEN` per account, the script stores credentials in the following location:
+- ./`ACCOUNT_NAME`/cloudflare.auto.tfvars
 
 #### Initialize Terraform
 
@@ -32,7 +41,7 @@ Create the `providers.tf` file and init Terraform. The `providers.tf` in this re
 
 ```bash
 cd [account sub-directory]
-terraform init
+AWS_DEFAULT_PROFILE=my-aws-account terraform init
 cd ..
 ```
 
@@ -61,20 +70,20 @@ Ideally when running through the plan after import for the first time, there are
 
 Validate the Terraform plan
 ```bash
-terraform plan -out current.plan
+AWS_DEFAULT_PROFILE=my-aws-account terraform plan -out current.plan
 ```
 
 Apply the Terraform plan
 ```bash
-terraform apply current.plan
+AWS_DEFAULT_PROFILE=my-aws-account terraform apply current.plan
 ```
 
 ## Troubleshooting
 You may need to modify some state manually. For example, the `cloudflare_account` "type" attribute cannot be modified or imported (bug?). You may need to manually add the type attribute. To do this, following these steps:
 ```bash
-terraform state pull > current.state
+AWS_DEFAULT_PROFILE=my-aws-account terraform state pull > current.state
 cp current.state new.state
 # Edit the state
 nano new.state
-terraform state push new.state
+AWS_DEFAULT_PROFILE=my-aws-account terraform state push new.state
 ```
