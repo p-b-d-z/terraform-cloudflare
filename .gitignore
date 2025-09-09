@@ -1,3 +1,4 @@
 # Exclude files with credentials
 cloudflare.auto.tfvars
+settings.auto.tfvars
 .env
