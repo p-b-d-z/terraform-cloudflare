@@ -1,7 +1,4 @@
-### MANUALLY UPDATED - CONTAINS SENSITIVE INFORMATION ###
-
-# Credentials
-cloudflare_api_token="OBFUSCATED"
+# IAM
 google_oauth_client_id="OBFUSCATED"
 # Zero Trust
 cloudflare_zero_trust_access_domain="OBFUSCATED"
